@@ -14,4 +14,6 @@ int ClosedRange_getLowerEndPoint(ClosedRange *r);
 int ClosedRange_getUpperEndPoint(ClosedRange *r);
 
 
+char *ClosedRange_getCharacterExpression(ClosedRange *r,char *str);
+
 #endif
