@@ -6,6 +6,8 @@
 
 static char *itoa( int val, char *a, int radix );
 void initialize_string(char *str,int length);
+void addOpenBracketQuote(char *str);
+void addCloseBracketQuote(char *str);
 
 void ClosedRange_Create(ClosedRange *r,int lowerEndPoint,int upperEndPoint){
 	r->lowerEndPoint=lowerEndPoint;
@@ -24,27 +26,15 @@ int ClosedRange_getUpperEndPoint(ClosedRange *r){
 
 char *ClosedRange_getCharacterExpression(ClosedRange *r,char *str)
 {
-	char *pointer;
-
-	int len;
-
 	initialize_string(str,100);
-	str[0] = '[';
 
-	itoa(ClosedRange_getLowerEndPoint(r),&str[1],10);
+	addOpenBracketQuote(str);
 
-	len=0;
+	itoa(ClosedRange_getLowerEndPoint(r),&str[strlen(str)],10);
+	str[strlen(str)]=',';
+	itoa(ClosedRange_getUpperEndPoint(r),&str[strlen(str)],10);
 
-	len= strlen(str);
-	str[len]=',';
-
-	pointer = &str[len+1];
-	itoa(ClosedRange_getUpperEndPoint(r),pointer,10);
-	len= strlen(str);
-
-	pointer = &str[len];
-
-	pointer[0] = ']';
+	addCloseBracketQuote(str);
 
 	return str;
 }
@@ -80,3 +70,10 @@ void initialize_string(char *str,int length)
 	}
 }
 
+void addOpenBracketQuote(char *str){
+	str[0]='[';
+}
+void addCloseBracketQuote(char *str)
+{
+	str[strlen(str)] = ']';
+}
