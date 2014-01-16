@@ -24,4 +24,12 @@ TEST(ClosedRange,getLowerEndPoint){
 
 }
 
+TEST(ClosedRange,getUpperEndPoint){
+		ClosedRange r;
+		ClosedRange_Create(&r,3,8);
+
+		LONGS_EQUAL(8,ClosedRange_getUpperEndPoint(&r));
+}
+
+
 

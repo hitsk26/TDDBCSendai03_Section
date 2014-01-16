@@ -13,3 +13,6 @@ int ClosedRange_getLowerEndPoint(ClosedRange *r){
 	return r->lowerEndPoint;
 }
 
+int ClosedRange_getUpperEndPoint(ClosedRange *r){
+	return r->upperEndpoint;
+}
