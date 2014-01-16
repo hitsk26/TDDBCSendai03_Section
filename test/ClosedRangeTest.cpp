@@ -35,11 +35,11 @@ TEST(ClosedRange,getCharacterClosedRange){
 }
 TEST(ClosedRange,getCharacterClosedRangeDoubleDigits)
 {
-ClosedRange r_30_800;
-ClosedRange_Create(&r_30_800,30,800);
-char str[100];
+	ClosedRange r_30_800;
+	ClosedRange_Create(&r_30_800,30,800);
+	char str[100];
 
-STRCMP_EQUAL("[30,800]",ClosedRange_getCharacterExpression(&r_30_800,str));
+	STRCMP_EQUAL("[30,800]",ClosedRange_getCharacterExpression(&r_30_800,str));
 }
 
 
